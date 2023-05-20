@@ -2,9 +2,8 @@
 Hack Davis 23
 ![Hack Davis - image (2)](https://github.com/ainekeenan/hackdavis23/assets/100050987/86986281-cf5e-4d85-ac94-d35ac18cc4d0)
 
-![Hackdavisgrou](https://github.com/ainekeenan/hackdavis23/assets/100050987/856ac931-72bf-44f7-a659-1da1f1f3a99c)
-![Kefir](https://github.com/ainekeenan/hackdavis23/assets/100050987/b24c4ef3-c56c-4674-aa47-b5e3a50eb584)
-![meena](https://github.com/ainekeenan/hackdavis23/assets/100050987/6fe71735-4e07-4846-b240-0060ef1c1e49)
+![Brown Gold Aesthetic Creativity Mood Boards Photo Collage](https://github.com/ainekeenan/hackdavis23/assets/100050987/25fef853-f664-4769-99e7-f7bf8fbf5573)
+
 ![cowdavis](https://github.com/ainekeenan/hackdavis23/assets/100050987/24b96e5a-77fe-4a08-83f8-d89531fde15b)
 ![brinda](https://github.com/ainekeenan/hackdavis23/assets/100050987/3b25927d-b424-42f0-9772-990226c74fa3)
 
