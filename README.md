@@ -7,5 +7,5 @@ Hack Davis 23
 ![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (3)](https://github.com/ainekeenan/hackdavis23/assets/100050987/ea41b011-fad0-4e67-9193-ccb53cbb7f04)
 
 
-![kombucha](https://github.com/ainekeenan/hackdavis23/assets/100050987/5485d872-4334-469a-ae6e-8201018a5240)
+![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (4)](https://github.com/ainekeenan/hackdavis23/assets/100050987/c980397e-df75-46cc-aa1c-7e53b23bff01)
 
