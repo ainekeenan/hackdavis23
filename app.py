@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World! CATSJKLSKLKLJSLSK</p>"
 
-def from_url_get_ingredient():
+def from_url_get_otherRareRecipes():
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
@@ -25,7 +25,9 @@ def from_url_get_ingredient():
     for recipe in dict[]{
         recipe = {
             "recipeName" = recipe["title"]
-            
+            "id" = recipe["id"]
+
+
         }
 
     }
