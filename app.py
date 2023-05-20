@@ -12,10 +12,12 @@ def from_url_get_otherRareRecipes():
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
-    url = "https://api.spoonacular.com/recipes/complexSearch?api_key =35a2e3a4aba74c3aaa99a943c2be1295 & includeIngredients={}&number=3&ignorePantry=true".format(os.environ.get("Rare_Ingredients"))
+    health = "give me the health"
+
+    url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={}&health=".format(os.environ.get("Rare_Ingredients"))
     response = urllib.request.urlopen(url)
     recipes = response.read()
-    dict = json.load(recipes)
+    dict = json.loads(recipes)
 
     # make empty array for recipes (can use recipes bc you loaded it into dict)
     recipes = []
