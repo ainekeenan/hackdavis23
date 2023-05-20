@@ -1,18 +1,28 @@
 from flask import Flask, render_template, request
+from bs4 import BeautifulSoup
+import requests
 import cgi, cgitb
 
 app = Flask(__name__)
 
 forms=cgi.FieldStorage()
-recipe_url = ""
 
 
 @app.route('/', methods=["GET", "POST"])
 def home():
+    return render_template('home.html')
+
+@app.route('/result', methods=["GET", "POST"])
+def result():
     if request.method == "POST":
-        recipe_url = request.form.get("url")
-        print(recipe_url)
-    return render_template('home.html', url=recipe_url)
+        url = request.form.get("url")
+        response = requests.get(url)
+        html_content = response.content
+        soup = BeautifulSoup(html_content, 'html.parser')
+        ingredient_elements = soup.find_all(class_ = lambda c: c and "ingredient" in c.lower())
+        ingredients = [element.get_text(strip=True)+"," for element in ingredient_elements]
+        print(ingredients)
+    return ingredients
 
 if __name__ == '__main__':
     app.run()
