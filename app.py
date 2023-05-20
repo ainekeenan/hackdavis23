@@ -12,7 +12,7 @@ def from_url_get_otherRareRecipes():
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
-    url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={}&number=3&ignorePantry=true".format(os.environ.get("Rare_Ingredients"))
+    url = "https://api.spoonacular.com/recipes/complexSearch?api_key =35a2e3a4aba74c3aaa99a943c2be1295 & includeIngredients={}&number=3&ignorePantry=true".format(os.environ.get("Rare_Ingredients"))
     response = urllib.request.urlopen(url)
     recipes = response.read()
     dict = json.load(recipes)
@@ -26,11 +26,12 @@ def from_url_get_otherRareRecipes():
         recipe = {
             "recipeName" = recipe["title"]
             "id" = recipe["id"]
-
-
         }
+        recipes.append(recipe)
 
     }
+
+    return {"results" : recipes}
     
 
 
