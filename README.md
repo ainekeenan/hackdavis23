@@ -13,7 +13,7 @@ To run the application, follow these simple steps:
 1. :battery: Download the dependencies needed [Dependencies](#Dependencies:)
 2. :woman_technologist: Clone the repository in a directory of your choice
 3. 	:computer: Run the application on a local host. Default port 5000
-4. :snake: Command to run application:  ``` python app.py  ``` or   ```python3 -m flask run   ```
+4. :snake: Command to run application:  ``` python app.py  ``` or   ```python3 -m flask run ```
 5. :sparkles: Watch the magic happen!
 ![Hack Davis - image (2)](https://github.com/ainekeenan/hackdavis23/assets/100050987/86986281-cf5e-4d85-ac94-d35ac18cc4d0)
 
