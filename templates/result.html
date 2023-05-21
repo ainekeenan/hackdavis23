@@ -9,6 +9,7 @@
   
             background-color: #f2ede1;
             z-index: 0;
+            color: #573111;
         }
   
         .wrapper {
@@ -28,21 +29,6 @@
             display: flex;
         }
   
-        .url-search{
-          font-family: 'Manrope', sans-serif;
-          border: 1px solid #CFCFCF;
-          border-radius: 7px;
-          height: 40px;
-          width: 120%;
-          padding: 2px 2px 2px 10px;
-        }
-        
-        .dietary-restriction {
-          font-family: 'Manrope', sans-serif;
-          border: 1px solid #CFCFCF;
-          border-radius: 7px;
-        }
-  
         .results{
           display: flex;
           flex-direction: column;
@@ -51,6 +37,29 @@
           border: 1px;
           border-radius: 10px;
           margin: 5px;
+          margin-bottom: 20px;
+          font-family: 'Manrope', sans-serif;
+        }
+
+        .recipe-name {
+            font-family: 'Manrope', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 15px;
+        }
+
+        .ingredients-list {
+            font-family: 'Manrope', sans-serif;
+            width: 50%;
+        }
+
+        .ingredient-text {
+            font-family: 'Manrope', sans-serif;
+            margin-bottom: -15px;
+        }
+
+        .ingredient{
+            font-family: 'Manrope', sans-serif;
         }
   
         .search-button {
@@ -59,7 +68,7 @@
           letter-spacing: 2px;
           text-decoration: none;
           text-transform: uppercase;
-          color: #000;
+          color: #573111;
           cursor: pointer;
           border: 3px solid;
           padding: 0.25em 0.5em;
@@ -84,13 +93,13 @@
 
         /* CSS */
         .button-2 {
-        background-color: rgba(51, 51, 51, 0.05);
+        background-color: #d9e3d5;
         border-radius: 8px;
         border-width: 0;
         color: #333333;
         cursor: pointer;
         display: inline-block;
-        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: 'Manrope', sans-serif;
         font-size: 14px;
         font-weight: 500;
         line-height: 20px;
@@ -108,22 +117,25 @@
       </style>
 </head>
 <body class="body">
+    <br>
     <div class="wrapper">
         <h1 class="title">Results:</h1>
             {% for recipe in recipes %}
                 <div class="results">
-                    <div class="recipe-name"> {{recipe.recipeName}} </div>
+                    <div class="recipe-name"><u>{{recipe.recipeName}}</u></div>
+                    
                     <div class="ingredient-list">
-                        <div>Ingredients:</div>
+                        <div class="ingredient-text">Ingredients:</div>
                         <ul>
                             {% for ingredient in recipe.ingredients %}
-                                <li>{{ingredient}}</li>
+                                <li class="ingredient">{{ingredient.food}}</li>
                             {% endfor %}
                         </ul>
                     </div>
                     <a href="{{recipe.urlLink}}"><button class="button-2" role="button">Jump To Recipe -></button></a>
                 </div>
             {% endfor %}
+            <br>
             <a href="/"><button class="search-button">back</button></a>
     </div> 
 </body>

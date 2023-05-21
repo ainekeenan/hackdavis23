@@ -32,7 +32,7 @@ def from_url_get_otherRareRecipes(diet, ingredients):
         recipe = {
           "recipeName" : recipe["recipe"]["label"],
            "urlLink" : recipe["recipe"]["url"],
-           "ingredients": recipe["recipe"]["ingredientLines"]
+           "ingredients": recipe["recipe"]["ingredients"],
         }
         recipes.append(recipe)
 
