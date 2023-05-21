@@ -10,7 +10,8 @@ To enjoy the application, follow these simple steps:
 4. 	:shallow_pan_of_food: Enjoy a list of tasty new recipes that share similar uncommon ingredients
 
 To run the application, follow these simple steps:
-1. :battery: Download the dependencies needed [Dependencies](#Dependencies:)
+1. :battery: Download the dependencies needed 
+-[Dependencies](#Dependencies:)
 2. :woman_technologist: Clone the repository in a directory of your choice
 3. 	:computer: Run the application on a local host. Default port 5000
 4. :snake: Command to run application:  ``` python app.py  ``` or   ```python3 -m flask run ```
