@@ -16,7 +16,8 @@ Hack Davis 23
 
 # **Dependencies:**
 
-## **Python:** https://www.python.org/downloads/
+## **Python:** 
+Navigate to Python's official website (https://www.python.org/downloads/) and find the right download for your environment. 
 ## **Flask:**
 ```
 pip install flask    
