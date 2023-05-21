@@ -1,21 +1,20 @@
 from flask import Flask
-import urllib.request, json, os
+import urllib.request, json
+
+import os
 
 app = Flask(__name__)
 
 @app.route("/CATS")
-
-def hello_world():
-    return "<p>Hello, World! CATSJKLSKLKLJSLSK</p>"
-
 def from_url_get_otherRareRecipes():
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
     health = "give me the health"
 
-    url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={}&health={}".format(os.environ.get("Rare_Ingredients"), health)
-    response = urllib.request.urlopen(url)
+    # url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={}&health={}&type=any".format(os.environ.get("Rare_Ingredients"), health)
+    url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q=chicken,pasta&health=kosher&type=any"
+    response = urllib.request.urlopen(url)   
     recipes = response.read()
     dict = json.loads(recipes)
 
@@ -24,16 +23,16 @@ def from_url_get_otherRareRecipes():
 
 
     # get the title of recipes
-    for recipe in dict[]{
+    for recipe in dict["hits"]:
         recipe = {
-            "recipeName" = recipe["title"]
-            "id" = recipe["id"]
+          "recipeName" : recipe["recipe"]["label"],
+           "urlLink" : recipe["recipe"]["url"]
         }
         recipes.append(recipe)
 
-    }
-
-    return {"results" : recipes}
+    
+    return "<p>{"results" : recipes}</p>"
+    #return "<p>" + str(recipes) +  "</p>"
     
 
 
