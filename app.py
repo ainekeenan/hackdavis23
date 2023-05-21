@@ -35,8 +35,8 @@ def from_url_get_otherRareRecipes():
         recipes.append(recipe)
 
     
-    return recipes
-    #return "<p>" + str(recipes) +  "</p>"
+   return recipes
+   # return "<p>" + str(recipes) +  "</p>"
     
 
 
