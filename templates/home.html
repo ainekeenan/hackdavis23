@@ -1,26 +1,42 @@
 <html>
-<head>
-</head>
-<body>
-    <h1>Search Recipes:</h1>
+  <head>
+    <style>
+      .body{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .title{
+          display: flex;
+      }
+    </style>
+  </head>
+<body class="body">
+    <h1 class="title">Search Recipes:</h1>
     <form action = "http://localhost:5000/result" method = "post">
-        <p><input type="text" placeholder="Recipe URL here..." name=url></p>
-        <div class="dietary-restrictions">
-            <input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian">
+        <p><input type="url" placeholder="Recipe URL here..." name=url></p>
+
+        <label for="dietary-restrictions">Dietary Restrictions: </label>
+        <select name="dietary-restrictions" id="dietary-restrictions" class="dietary-restrictions">
+            <option id="none" value="none">
+            <label for="none" selected>None</label><br>  
+          
+            <option id="vegetarian" value="vegetarian">
             <label for="vegetarian">Vegetarian</label><br>
 
-            <input type="checkbox" id="vegan" name="vegan" value="vegan">
+            <option id="vegan" value="vegan">
             <label for="vegan">Vegan</label><br>
 
-            <input type="checkbox" id="dairy-free" name="dairy-free" value="dairy-free">
+            <option id="dairy-free" value="dairy-free">
             <label for="dairy-free">Dairy-Free</label><br>
 
-            <input type="checkbox" id="gluten-free" name="gluten-free" value="gluten-free">
+            <option id="gluten-free" value="gluten-free">
             <label for="gluten-free">Gluten-Free</label><br>
 
-            <input type="checkbox" id="kosher" name="kosher" value="kosher">
+            <option id="kosher" value="kosher">
             <label for="kosher">Kosher</label><br>
-        </div>
+        </select name="dietary-restrictions" id="dietary-restrictions">
         <p><input type = "submit" value = "submit" /></p>
         <p>*doesn't support all recipe websites!</p>
      </form>   

@@ -16,13 +16,18 @@ def home():
 def result():
     if request.method == "POST":
         url = request.form.get("url")
-        response = requests.get(url)
-        html_content = response.content
-        soup = BeautifulSoup(html_content, 'html.parser')
-        ingredient_elements = soup.find_all(class_ = lambda c: c and "ingredient" in c.lower())
-        ingredients = [element.get_text(strip=True)+"," for element in ingredient_elements]
-        print(ingredients)
-    return ingredients
+
+        if url:
+            response = requests.get(url)
+            html_content = response.content
+            soup = BeautifulSoup(html_content, 'html.parser')
+            ingredient_elements = soup.find_all(class_ = lambda c: c and "ingredient" in c.lower())
+            ingredients = [element.get_text(strip=True)+"," for element in ingredient_elements]
+            
+            if ingredients:
+                return ingredients
+
+        return render_template('invalid.html')
 
 if __name__ == '__main__':
     app.run()
