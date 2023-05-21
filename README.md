@@ -69,7 +69,10 @@ If you get the error:
  
  Follow these instructions:
 ```
-brew install openssl@1.1  or brew reinstall openssl@1.1
+brew install openssl@1.1 
+```
+or ```brew reinstall openssl@1.1```
+then 
 python3 -m pip install urllib3==1.26.6  
 ```
 
