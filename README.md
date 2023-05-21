@@ -10,7 +10,7 @@ Hack Davis 23
 ![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (4)](https://github.com/ainekeenan/hackdavis23/assets/100050987/c980397e-df75-46cc-aa1c-7e53b23bff01)
 
 
- “ImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3. See: https://github.com/urllib3/urllib3/issues/2168”
+![Dependencies - Google Docs-page-0](https://github.com/ainekeenan/hackdavis23/assets/100050987/6460dd11-7a36-4c2d-a03e-fc7915cde60a)
 
 
 
