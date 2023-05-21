@@ -14,34 +14,34 @@ Hack Davis 23
 
 
 
-#**Dependencies:**
+# **Dependencies:**
 
-##**Python:** https://www.python.org/downloads/
-##**Flask:**
+## **Python:** https://www.python.org/downloads/
+## **Flask:**
 ```
 pip install flask    
 ```
-##**Beautiful Soup:**
+## **Beautiful Soup:**
 ```
 pip install beautifulsoup4  
   ```
-##**Requests:**
+## **Requests:**
 ```
 sudo pip install requests  
   ```
-##**Numpy**
+## **Numpy**
  ```
 pip install numpy
  ```
-##**Pandas:**
+## **Pandas:**
 ```
 pip install pandas
   ```
-##**Text cleaning**
+## **Text cleaning**
 ```
 pip install clean-text
 ```
-##**NLP: Spacy**
+## **NLP: Spacy**
 ```
 pip install spacy
 python -m spacy download en
@@ -49,7 +49,7 @@ python -m spacy download en
 
  *(pip3 depending on python version)*
 
-##**Notes: **
+# **Notes: **
 
 If you get the error:
 “ImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3. See: https://github.com/urllib3/urllib3/issues/2168”
