@@ -13,6 +13,13 @@ import spacy
 app = Flask(__name__)
 
 forms=cgi.FieldStorage()
+nlp = None
+
+def initialize_nlp():
+   global nlp
+   nlp = spacy.load("en_core_web_sm")
+
+initialize_nlp()
 
 def classify_edible(item):
     # edible_keywords = [
@@ -28,7 +35,12 @@ def classify_edible(item):
     return "Not Edible"
 
 def is_noun(string):
-    nlp = spacy.load("en_core_web_sm")
+    
+    global nlp
+    if nlp is None:
+        raise ValueError("nlp has not been initialized. Call initalize_nlp().first.")
+   
+   
     doc = nlp(string)
 
     for token in doc:

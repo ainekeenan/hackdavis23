@@ -4,16 +4,16 @@ Hack Davis 23
 Here is a simple Flask web application that uses HTML templates. 
 
 To enjoy the application, follow these simple steps:
-1. :link: Find a URL that holds the recipe for your favorite food! 
+1. :link: Find a URL that holds your latest recipe! 
 2. 	:mag_right: Paste the URL into the search bar of our web application 
 3. 	:leafy_green: \(Optional) If you have dietary restrictions, select them now
 4. 	:shallow_pan_of_food: Enjoy a list of tasty new recipes that share similar uncommon ingredients
 
 To run the application, follow these simple steps:
-1. :battery: Download the dependencies needed - [Dependencies](#Dependencies:)
+1. :battery: Download the dependencies needed (listed below)
 2. :woman_technologist: Clone the repository in a directory of your choice
-3. 	:computer: Run the application on a local host. Default port 5000
-4. :snake: Command to run application: python app.py 
+3. :computer: Run the application on a local host. Default port 5000
+4. :snake: Command to run application:  ``` python app.py  ``` or   ```python3 -m flask run ```
 5. :sparkles: Watch the magic happen!
 ![Hack Davis - image (2)](https://github.com/ainekeenan/hackdavis23/assets/100050987/86986281-cf5e-4d85-ac94-d35ac18cc4d0)
 
@@ -76,5 +76,3 @@ then
 ```
 python3 -m pip install urllib3==1.26.6  
 ```
-
-
