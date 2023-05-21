@@ -1,44 +1,144 @@
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
     <style>
       .body{
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
+
+          background-color: #f2ede1;
+          z-index: 0;
+          height: 90%;
+      }
+
+      .wrapper {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f2ed;
+        opacity: 100%;
+        border-radius: 20px;
+        z-index: 1;
+        width: 50%;
+        font-family: 'Manrope', sans-serif;
       }
 
       .title{
           display: flex;
       }
+
+      .url-search{
+        font-family: 'Manrope', sans-serif;
+        border: 1px solid #CFCFCF;
+        border-radius: 7px;
+        height: 40px;
+        width: 120%;
+        padding: 2px 2px 2px 10px;
+      }
+      
+      .dietary-restriction {
+        font-family: 'Manrope', sans-serif;
+        border: 1px solid #CFCFCF;
+        border-radius: 7px;
+      }
+
+      .search-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .search-button {
+        font-family: 'Manrope', sans-serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000;
+        cursor: pointer;
+        border: 3px solid;
+        padding: 0.25em 0.5em;
+        box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
+      .search-button:active {
+        box-shadow: 0px 0px 0px 0px;
+        top: 5px;
+        left: 5px;
+      }
+
+      @media (min-width: 768px) {
+        .search-button {
+          padding: 0.25em 0.75em;
+        }
+      }
     </style>
   </head>
+
 <body class="body">
+  <div class="wrapper">
     <h1 class="title">Search Recipes:</h1>
-    <form action = "http://localhost:5000/result" method = "post">
-        <p><input type="url" placeholder="Recipe URL here..." name=url></p>
+      <form action = "http://localhost:5000/result" method = "post">
+        <div class="search-form">
+          <input class="url-search" type="url" placeholder="Recipe URL here..." name=url>
+          <br>
+          <div class="diet-wrapper">
+            <label for="dietary-restriction">Dietary Restrictions: </label>
+              <select name="dietary-restriction" id="dietary-restriction" class="dietary-restriction">
+                  <option id="none" value="none">
+                  <label for="none">None</label><br>  
+                
+                  <option id="vegetarian" value="vegetarian">
+                  <label for="vegetarian">Vegetarian</label><br>
 
-        <label for="dietary-restrictions">Dietary Restrictions: </label>
-        <select name="dietary-restrictions" id="dietary-restrictions" class="dietary-restrictions">
-            <option id="none" value="none">
-            <label for="none" selected>None</label><br>  
-          
-            <option id="vegetarian" value="vegetarian">
-            <label for="vegetarian">Vegetarian</label><br>
+                  <option id="vegan" value="vegan">
+                  <label for="vegan">Vegan</label><br>
 
-            <option id="vegan" value="vegan">
-            <label for="vegan">Vegan</label><br>
+                  <option id="dairy-free" value="dairy-free">
+                  <label for="dairy-free">Dairy-Free</label><br>
 
-            <option id="dairy-free" value="dairy-free">
-            <label for="dairy-free">Dairy-Free</label><br>
+                  <option id="gluten-free" value="gluten-free">
+                  <label for="gluten-free">Gluten-Free</label><br>
 
-            <option id="gluten-free" value="gluten-free">
-            <label for="gluten-free">Gluten-Free</label><br>
+                  <option id="egg-free" value="egg-free">
+                  <label for="egg-free">Egg-Free</label><br>
 
-            <option id="kosher" value="kosher">
-            <label for="kosher">Kosher</label><br>
-        </select name="dietary-restrictions" id="dietary-restrictions">
-        <p><input type = "submit" value = "submit" /></p>
-        <p>*doesn't support all recipe websites!</p>
-     </form>   
+                  <option id="fish-free" value="fish-free">
+                  <label for="fish-free">Fish-Free</label><br>
+
+                  <option id="peanut-free" value="peanut-free">
+                  <label for="peanut-free">Peanut-Free</label><br>
+
+                  <option id="tree-nut-free" value="tree-nut-free">
+                  <label for="tree-nut-free">Tree Nut-Free</label><br>
+
+                  <option id="shellfish-free" value="shellfish-free">
+                  <label for="shellfish-free">Shellfish-Free</label><br>
+
+                  <option id="soy-free" value="soy-free">
+                  <label for="soy-free">Soy-Free</label><br>
+
+                  <option id="kosher" value="kosher">
+                  <label for="kosher">Kosher</label><br>
+              </select name="dietary-restrictions" id="dietary-restrictions">
+          </div>
+          <br>
+          <input class="search-button" type = "submit" value = "Search" />
+          <p>*doesn't support all recipe websites!</p>
+        </div>
+      </form>  
+      <div class="box"> .</div>
+    </div> 
 </body>
 </html>

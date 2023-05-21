@@ -19,12 +19,15 @@ def result():
 
         if url:
             response = requests.get(url)
+            diet = request.form.get("dietary-restriction")
+
             html_content = response.content
             soup = BeautifulSoup(html_content, 'html.parser')
             ingredient_elements = soup.find_all(class_ = lambda c: c and "ingredient" in c.lower())
             ingredients = [element.get_text(strip=True)+"," for element in ingredient_elements]
-            
+
             if ingredients:
+                print(diet)
                 return ingredients
 
         return render_template('invalid.html')
