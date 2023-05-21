@@ -23,19 +23,19 @@ pip install flask
 ```
 ##**Beautiful Soup:**
 ```
- 	pip install beautifulsoup4  
+pip install beautifulsoup4  
   ```
 ##**Requests:**
 ```
- 	sudo pip install requests  
+sudo pip install requests  
   ```
 ##**Numpy**
  ```
- pip install numpy
+pip install numpy
  ```
 ##**Pandas:**
 ```
- 	pip install pandas
+pip install pandas
   ```
 ##**Text cleaning**
 ```
@@ -44,7 +44,7 @@ pip install clean-text
 ##**NLP: Spacy**
 ```
 pip install spacy
- 	python -m spacy download en
+python -m spacy download en
   ```
 
  *(pip3 depending on python version)*
