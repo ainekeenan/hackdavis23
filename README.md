@@ -1,5 +1,5 @@
 # hackdavis23
-Hack Davis 23
+# Rare Recipify
 
 Here is a simple Flask web application that uses HTML templates. 
 
@@ -20,9 +20,8 @@ To run the application, follow these simple steps:
 ![Brown Gold Aesthetic Creativity Mood Boards Photo Collage](https://github.com/ainekeenan/hackdavis23/assets/100050987/25fef853-f664-4769-99e7-f7bf8fbf5573)
 ![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (2)](https://github.com/ainekeenan/hackdavis23/assets/100050987/f10c55e1-b0ce-4fee-ba5f-5cb088a51062)
 ![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (3)](https://github.com/ainekeenan/hackdavis23/assets/100050987/ea41b011-fad0-4e67-9193-ccb53cbb7f04)
+![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (5)](https://github.com/ainekeenan/hackdavis23/assets/100050987/1165f24f-8bf7-443b-b741-d54f91b46f9c)
 
-
-![Brown Gold Aesthetic Creativity Mood Boards Photo Collage (4)](https://github.com/ainekeenan/hackdavis23/assets/100050987/c980397e-df75-46cc-aa1c-7e53b23bff01)
 
 
 
