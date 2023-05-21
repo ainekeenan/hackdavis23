@@ -3,16 +3,116 @@ from bs4 import BeautifulSoup
 import requests
 import urllib.request, json
 import cgi, cgitb
+import numpy as np
+import pandas as pd
+from cleantext import clean
+from math import log
+import re
+import spacy
 
 app = Flask(__name__)
 
 forms=cgi.FieldStorage()
 
+def classify_edible(item):
+    # edible_keywords = [
+    #     'food', 'edible', 'eat', 'consume', 'taste', 'ingest', 'nutrition',
+    #     'digest', 'swallow', 'nourishment', 'snack', 'meal', 'drink'
+    # ]
+    food_words = open("food.txt").read().split()
+
+    for keyword in food_words:
+        if (keyword == item.lower()): # redifine equal as "similar"
+            return "Edible"
+
+    return "Not Edible"
+
+def is_noun(string):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(string)
+
+    for token in doc:
+        if token.pos_ == "NOUN":
+            return True
+    
+    return False
+
+def infer_spaces(s):
+    """Uses dynamic programming to infer the location of spaces in a string
+    without spaces."""
+
+    # Find the best match for the i first characters, assuming cost has
+    # been built for the i-1 first characters.
+    # Returns a pair (match_cost, match_length).
+    def best_match(i):
+        words = open("words-by-frequency.txt").read().split()
+        wordcost = dict((k, log((i+1)*log(len(words)))) for i,k in enumerate(words))
+        maxword = max(len(x) for x in words)
+        candidates = enumerate(reversed(cost[max(0, i-maxword):i]))
+        return min((c + wordcost.get(s[i-k-1:i], 9e999), k+1) for k,c in candidates)
+
+    # Build the cost array.
+    cost = [0]
+    for i in range(1,len(s)+1):
+        c,k = best_match(i)
+        cost.append(c)
+
+    # Backtrack to recover the minimal-cost string.
+    out = []
+    i = len(s)
+    while i>0:
+        c,k = best_match(i)
+        assert c == cost[i]
+        out.append(s[i-k:i])
+        i -= k
+
+    return " ".join(reversed(out))
+
+def clean_ingredients(ingredients):
+    text =""
+    for i in ingredients:
+        text += (i + ",")
+    text = text.replace(" ", "")
+
+    regex = re.compile('[^a-zA-Z]')
+    regex.sub('', 'ab3d*E')
+    text = regex.sub('', text)
+    text = text.lower()
+    text = infer_spaces(text)
+    text = text.replace(" sauce", "_sauce")
+    text = text.replace(" sugar", "_sugar")
+    text = text.replace(" oil", "_oil")
+    text = text.replace(" juice", "_juice")
+
+    nlp = spacy.load("en_core_web_sm")
+    set_ingredients = set()
+    items = text.split(' ')
+
+    for item in items:
+        classification = classify_edible(item)
+        if((classification=="Edible")and(is_noun(item))):
+            set_ingredients.add(item)
+            #print(f"{item}: {classification}")
+
+    set_ingredients.discard("teaspoon")
+    set_ingredients.discard("teaspoons")
+    set_ingredients.discard("tablespoon")
+    set_ingredients.discard("tablespoons")
+    set_ingredients.discard("pieces")
+    set_ingredients.discard("piece")
+
+    final_str = ""
+
+    for val in set_ingredients:
+        final_str += val + ","
+
+    final_str = final_str[:-1]
+    return final_str
+
 def from_url_get_otherRareRecipes(diet, ingredients):
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
-    ingredients = "apple"
 
     # url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={}&health={}&type=any".format(os.environ.get("Rare_Ingredients"), health)
     url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={ingredients}&health={health}&type=any".format(ingredients=ingredients, health=diet)
@@ -61,7 +161,8 @@ def result():
 
             if ingredients:
                 print(diet)
-                recipes = from_url_get_otherRareRecipes(diet, ingredients)
+                ingred = clean_ingredients(ingredients)
+                recipes = from_url_get_otherRareRecipes(diet, ingred)
                 return render_template('result.html', recipes = recipes)
 
         return render_template('invalid.html')
