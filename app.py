@@ -12,10 +12,12 @@ def from_url_get_otherRareRecipes(diet, ingredients):
     # request recipes with Rare ingredients variable
     #Recipes requested = 3
     # ignore common pantry items bc they are common
-    ingredients = "chicken"
+    ingredients = "apple"
 
     # url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={}&health={}&type=any".format(os.environ.get("Rare_Ingredients"), health)
     url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={ingredients}&health={health}&type=any".format(ingredients=ingredients, health=diet)
+    if diet == 'none':
+        url = "https://api.edamam.com/api/recipes/v2?app_id=fd727a17&app_key=3db153f6a682953219a9bb02b92537f9&q={ingredients}&type=any".format(ingredients=ingredients)
     response = urllib.request.urlopen(url)   
     recipes = response.read()
     dict = json.loads(recipes)
@@ -26,9 +28,11 @@ def from_url_get_otherRareRecipes(diet, ingredients):
 
     # get the title of recipes
     for recipe in dict["hits"]:
+        print(recipe["recipe"]["ingredientLines"])
         recipe = {
           "recipeName" : recipe["recipe"]["label"],
-           "urlLink" : recipe["recipe"]["url"]
+           "urlLink" : recipe["recipe"]["url"],
+           "ingredients": recipe["recipe"]["ingredientLines"]
         }
         recipes.append(recipe)
 
@@ -58,7 +62,7 @@ def result():
             if ingredients:
                 print(diet)
                 recipes = from_url_get_otherRareRecipes(diet, ingredients)
-                return recipes
+                return render_template('result.html', recipes = recipes)
 
         return render_template('invalid.html')
 
