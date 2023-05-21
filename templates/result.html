@@ -91,28 +91,47 @@
           }
         }
 
-        /* CSS */
-        .button-2 {
-        background-color: #d9e3d5;
+        .button-23 {
+        background-color: #e1e8dc;
+        border: 1px solid #573111;
         border-radius: 8px;
-        border-width: 0;
-        color: #333333;
+        box-sizing: border-box;
+        color: #573111;
         cursor: pointer;
         display: inline-block;
-        font-family: 'Manrope', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
+        font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+        font-size: 16px;
+        font-weight: 600;
         line-height: 20px;
-        list-style: none;
         margin: 0;
-        padding: 10px 12px;
+        outline: none;
+        padding: 13px 23px;
+        position: relative;
         text-align: center;
-        transition: all 200ms;
-        vertical-align: baseline;
-        white-space: nowrap;
+        text-decoration: none;
+        touch-action: manipulation;
+        transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
         user-select: none;
         -webkit-user-select: none;
-        touch-action: manipulation;
+        width: auto;
+        }
+
+        .button-23:focus-visible {
+        box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+        transition: box-shadow .2s;
+        }
+
+        .button-23:active {
+        background-color: #e2e8df;
+        border-color: #000000;
+        transform: scale(.96);
+        }
+
+        .button-23:disabled {
+        border-color: #e2e8df;
+        color: #e2e8df;
+        cursor: not-allowed;
+        opacity: 1;
         }
       </style>
 </head>
@@ -132,7 +151,7 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    <a href="{{recipe.urlLink}}"><button class="button-2" role="button">Jump To Recipe -></button></a>
+                    <a href="{{recipe.urlLink}}"><button class="button-23" role="button">Jump To Recipe -></button></a>
                 </div>
             {% endfor %}
             <br>
