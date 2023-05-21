@@ -38,7 +38,7 @@ pip install numpy
 ```
 pip install pandas
   ```
-## **Text cleaning**
+## - [ ] **Text cleaning**
 ```
 pip install clean-text
 ```
