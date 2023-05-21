@@ -14,12 +14,15 @@ app = Flask(__name__)
 
 forms=cgi.FieldStorage()
 
+words = open("words-by-frequency.txt").read().split()
+food_words = open("food.txt").read().split()
+nlp = spacy.load("en_core_web_sm")
+
 def classify_edible(item):
     # edible_keywords = [
     #     'food', 'edible', 'eat', 'consume', 'taste', 'ingest', 'nutrition',
     #     'digest', 'swallow', 'nourishment', 'snack', 'meal', 'drink'
     # ]
-    food_words = open("food.txt").read().split()
 
     for keyword in food_words:
         if (keyword == item.lower()): # redifine equal as "similar"
@@ -28,14 +31,19 @@ def classify_edible(item):
     return "Not Edible"
 
 def is_noun(string):
-    nlp = spacy.load("en_core_web_sm")
     doc = nlp(string)
 
     for token in doc:
         if token.pos_ == "NOUN":
             return True
-    
+
     return False
+
+def best_match(i, s):
+        wordcost = dict((k, log((i+1)*log(len(words)))) for i,k in enumerate(words))
+        maxword = max(len(x) for x in words)
+        candidates = enumerate(reversed(cost[max(0, i-maxword):i]))
+        return min((c + wordcost.get(s[i-k-1:i], 9e999), k+1) for k,c in candidates)
 
 def infer_spaces(s):
     """Uses dynamic programming to infer the location of spaces in a string
@@ -44,24 +52,19 @@ def infer_spaces(s):
     # Find the best match for the i first characters, assuming cost has
     # been built for the i-1 first characters.
     # Returns a pair (match_cost, match_length).
-    def best_match(i):
-        words = open("words-by-frequency.txt").read().split()
-        wordcost = dict((k, log((i+1)*log(len(words)))) for i,k in enumerate(words))
-        maxword = max(len(x) for x in words)
-        candidates = enumerate(reversed(cost[max(0, i-maxword):i]))
-        return min((c + wordcost.get(s[i-k-1:i], 9e999), k+1) for k,c in candidates)
 
     # Build the cost array.
+    global cost
     cost = [0]
     for i in range(1,len(s)+1):
-        c,k = best_match(i)
+        c,k = best_match(i, s)
         cost.append(c)
 
     # Backtrack to recover the minimal-cost string.
     out = []
     i = len(s)
     while i>0:
-        c,k = best_match(i)
+        c,k = best_match(i, s)
         assert c == cost[i]
         out.append(s[i-k:i])
         i -= k
