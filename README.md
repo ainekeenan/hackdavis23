@@ -1,6 +1,6 @@
 # hackdavis23
-# Rare Recipify
 ## Winner of Most Creative Hack
+# Rare Recipify
 
 Here is a simple Flask web application that uses HTML templates. 
 
