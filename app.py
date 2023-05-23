@@ -9,6 +9,8 @@ from cleantext import clean
 from math import log
 import re
 import spacy
+import ssl
+ssl._create_default_https_context = ssl._create_stdlib_context
 
 app = Flask(__name__)
 
